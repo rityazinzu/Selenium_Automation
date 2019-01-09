@@ -680,9 +680,11 @@ public class Qiss_Company_details_feature {
 		 */
 
 		Thread.sleep(5000);
-		driver.navigate().to("https://qiss-test.quipment.nl/Company/MaintainCompany/700?selectTab=6");
+		/*driver.navigate().to("https://qiss-test.quipment.nl/Company/MaintainCompany/700?selectTab=6");*/
 
-		// Qiss_Company_details_locators.Tariffset_tariff(driver).click();
+		Qiss_Company_details_locators.Tariffset_tariff(driver).click();
+		
+		Thread.sleep(2000);
 
 		if (Qiss_Company_details_locators.Tariffset_tariff(driver).getAttribute("class").contentEquals("active")) {
 			System.out.println("Successfuly navigated to Tariffset tariff page..");
@@ -919,8 +921,8 @@ public class Qiss_Company_details_feature {
 		(Qiss_Company_details_feature.driver).findElement(By.xpath("//button[contains(text(),'Yes')]")).click();
 		
 		gettariffname_details();
-		
-		System.out.println("SUCCESS.!!!");
+		Thread.sleep(2000);
+		System.out.println("Navigating Receipt page");
 		
 		
 	}
@@ -940,7 +942,7 @@ public class Qiss_Company_details_feature {
 		}
 	}
 
-	public void gettariffname_details()
+	public void gettariffname_details() throws InterruptedException
 	{
 		List<WebElement> tariff_list = driver.findElements(By.xpath("//*[@class='viewtaximetertariff_option']/div"));
 
@@ -955,6 +957,8 @@ public class Qiss_Company_details_feature {
 				else 
 				{
 					System.out.println("Tariffset Removed succesfully");
+					Thread.sleep(2000);
+					Qiss_Company_details_locators.ok_button(Qiss_Company_details_feature.driver).click();
 				}
 				break;
 			}
@@ -984,15 +988,21 @@ public class Qiss_Company_details_feature {
 	
 	public void reciept () throws Exception
 	{
+		Thread.sleep(3000);
 		
-		driver.navigate().to("https://qiss-test.quipment.nl/Company/MaintainCompany/700");
+		driver.get("https://qiss-test.quipment.nl/Company/MaintainCompany/700?selectTab=7");
+		Thread.sleep(3000);
+		Qiss_Company_details_locators.Receipt_tab(driver).click();
 		
+		
+		System.out.println("Navigated to Receipt page Successfully");
 		Thread.sleep(3000);
 		
 		/*Navigate to Receipt tab*/
 		Qiss_Company_details_locators.Receipt(driver).click();
 		
 		Thread.sleep(3000);
+		
 		/*Verify that 4 tabs are shown in receipt page */
 		Qiss_Company_details_function.receipt_tabs();
 		
@@ -1002,13 +1012,90 @@ public class Qiss_Company_details_feature {
 		Qiss_Company_details_function.title_verify("Quipment receipt", (Qiss_Company_details_locators.quip_receipt_element(driver)));
 		Qiss_Company_details_function.title_verify("Company receipt", (Qiss_Company_details_locators.company_receipt_element(driver)));
 		
-		/*Verify that user is able to add/edit/delete header in Header tab*/
+		/*Verify that user is able to add header in Header tab*/
 		Qiss_Company_details_function.header_function("TmHeader");
 		
 		Thread.sleep(3000);
-		/*Verify that user is able to add/edit/delete in Footer tab*/
-		Qiss_Company_details_function.header_function("TmFooter");
+		/*Verify that user is able to add in Footer tab*/
+		Qiss_Company_details_function.header_function("TmFooter"); 
 		
+		Thread.sleep(3000);
+		/*Navigate to Receipt tab*/
+		Qiss_Company_details_locators.Receipt(driver).click();
+		
+		/*Adding new created header and footer in receipt tab for receipt no 6 */
+		String receipt_no = "6";
+		
+		/*Finding receipt no 6 locator from list of locators */
+		List<WebElement> receipts_locators = driver.findElements(By.xpath("//*[@id='TmReceiptsTable']/tbody/tr[6]/td/input"));
+		for (WebElement loop:receipts_locators)
+		{
+			
+			if (loop.getAttribute("value").contentEquals(receipt_no))
+			{
+				System.out.println("Receipt number found - " + loop.getAttribute("value"));
+				
+				/*Finding dropdown arrows locators from Header and footer drop down control */
+				List<WebElement>  drop_down_locators = driver.findElements(By.xpath("//*[@id='TmReceiptsTable']/tbody/tr[6]/td/span/span/span/span"));
+				
+				for (WebElement arrow:drop_down_locators)
+				{
+					int abc = drop_down_locators.size();
+					System.out.println("Locators found are - " +abc);
+					Thread.sleep(2000);
+					/*Clicking on dropdown arrow locator */
+					arrow.click();
+					Thread.sleep(2000);
+					
+					/*Finding locators for options list from dropdown control  */
+					List<WebElement>  options_list_locators = driver.findElements(By.xpath("//*[@class='k-animation-container']/div/div[2]/ul/li"));
+					
+						for(WebElement list : options_list_locators)
+						{
+							/*Check Header/Footer list drop down list contains "Header_name_test_auto", click on it*/
+							if (list.getText().contentEquals("Header_name_test_auto"))
+							{
+								list.click();
+								Thread.sleep(2000);
+								break;
+							}
+						
+						}
+				}
+				break;
+			}
+			else
+			{
+			System.out.println("Searching Receipt Number");
+			}
+		}
+		
+		Qiss_Company_details_locators.save_button_receipt(Qiss_Company_details_feature.driver).click();
+		Thread.sleep(2000);
+		Qiss_Company_details_locators.ok_button(Qiss_Company_details_feature.driver).click();
+		
+		/*Verifying the header/footer dropdown control contains option "Header_name_test_auto" or not */
+		Thread.sleep(2000);
+		List<WebElement>  locators = driver.findElements(By.xpath("//*[@id='TmReceiptsTable']/tbody/tr[6]/td/following::span[contains (text(),'Header_name_test_auto')]"));
+		for(WebElement verify : locators)
+		{
+		 	if (verify.getText().contentEquals("Header_name_test_auto"))
+		 		{
+		 			System.out.println("Option successfully selected from drop down list");
+		 		}
+		 	else
+		 		{
+		 		System.out.println("Error in selecting option from drop down list");
+		 		}
+	  }
+	
+	/*	Verify that user is able to delete header in Header tab
+		Qiss_Company_details_function.header_delete_function("TmHeader");
+		
+		Thread.sleep(3000);
+		
+		Verify that user is able to delete header in Header tab
+		Qiss_Company_details_function.header_delete_function("TmFooter");*/
 	}
 		
 	

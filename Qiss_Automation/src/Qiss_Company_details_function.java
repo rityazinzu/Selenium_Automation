@@ -348,8 +348,9 @@ public class Qiss_Company_details_function {
 		}
 		
 		/*Click on ok button*/
-		WebElement ok_btn = (Qiss_Company_details_feature.driver).findElement(By.xpath("//*[@type='button'][contains(text(),'Ok')]"));
-		ok_btn.click();
+		Qiss_Company_details_locators.ok_button(Qiss_Company_details_feature.driver).click();
+		/*WebElement ok_btn = (Qiss_Company_details_feature.driver).findElement(By.xpath("//*[@type='button'][contains(text(),'Ok')]"));
+		ok_btn.click();*/
 		Thread.sleep(1000);
 	}
 	
@@ -370,6 +371,29 @@ public class Qiss_Company_details_function {
 			System.out.println("Header is missing");	
 		}
 		return flag;
+	}
+	
+	public static boolean header_delete_function(String id_value) throws InterruptedException
+	{
+		WebElement header_footer_link = (Qiss_Company_details_feature.driver).findElement(By.id(id_value));
+		header_footer_link.click();
+		Thread.sleep(2000);
+		
+		System.out.println((Qiss_Company_details_feature.driver).findElement(By.xpath("//*[@id='TmReceiptsTable']/tbody/tr/following::input[@value='Header_name_test_auto']")).getAttribute("value").contentEquals("Header_name_test_auto"));
+		if ((Qiss_Company_details_feature.driver).findElement(By.xpath("//*[@id='TmReceiptsTable']/tbody/tr/following::input[@value='Header_name_test_auto']")).getAttribute("value").contentEquals("Header_name_test_auto"))
+		{
+			Qiss_Company_details_feature.driver.findElement(By.xpath("//*[@id='TmReceiptsTable']/tbody/tr[2]/td[4]/div/div[2]")).click();
+			Thread.sleep(1000);
+			Qiss_Company_details_feature.driver.findElement(By.xpath("//div[@class='ui-dialog-buttonset']/button[contains(text(),'Yes')]")).click();
+			Thread.sleep(1000);
+			Qiss_Company_details_locators.ok_button(Qiss_Company_details_feature.driver).click();
+			System.out.println("Header/Footer deleted successfully.");
+		}
+		else
+		{
+			System.out.println("Error in deleting the Header/Footer");
+		}
+		return false;
 	}
 }
 	
