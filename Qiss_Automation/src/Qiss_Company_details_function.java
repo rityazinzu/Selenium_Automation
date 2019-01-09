@@ -386,6 +386,9 @@ public class Qiss_Company_details_function {
 			Thread.sleep(1000);
 			Qiss_Company_details_feature.driver.findElement(By.xpath("//div[@class='ui-dialog-buttonset']/button[contains(text(),'Yes')]")).click();
 			Thread.sleep(1000);
+			
+			/*if((Qiss_Company_details_feature.driver).findElement(By.id("AlterMessage")).getText().contentEquals("Could not delete footer as it is being referenced by receipt."));*/
+			
 			Qiss_Company_details_locators.ok_button(Qiss_Company_details_feature.driver).click();
 			System.out.println("Header/Footer deleted successfully.");
 		}

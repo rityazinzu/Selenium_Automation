@@ -651,6 +651,15 @@ public class Qiss_Company_details_locators {
 		return element;
 	}
 	
+	public static WebElement Receipt_tab (WebDriver driver)
+	
+	{
+		wait = new WebDriverWait(driver, 15);
+		element = wait.until(ExpectedConditions.elementToBeClickable(By.id("TmLink")));
+		return element;
+	}
+	
+	
 	public static WebElement Receipt (WebDriver driver)
 	
 	{
@@ -715,4 +724,17 @@ public class Qiss_Company_details_locators {
 		return element;
 	}
 	
+	public static WebElement ok_button (WebDriver driver)
+	{
+		wait = new WebDriverWait(driver, 15);
+		element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@type='button'][contains(text(),'Ok')]")));
+		return element;
+	}
+	
+	public static WebElement save_button_receipt (WebDriver driver)
+	{
+		wait = new WebDriverWait(driver, 15);
+		element = wait.until(ExpectedConditions.elementToBeClickable(By.name("saveTmReceipt")));
+		return element;
+	}
 }
