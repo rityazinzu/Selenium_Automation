@@ -664,7 +664,7 @@ public class Qiss_Company_details_locators {
 	
 	{
 		wait = new WebDriverWait(driver, 15);
-		element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='TmLink']")));
+		element = wait.until(ExpectedConditions.elementToBeClickable(By.id("TmReceiptanc")));
 		return element;
 	}
 	

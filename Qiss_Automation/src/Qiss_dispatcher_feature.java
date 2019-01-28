@@ -61,7 +61,8 @@ public class Qiss_dispatcher_feature {
 	public static void waitForPageLoaded() {
         ExpectedCondition<Boolean> expectation = new
                 ExpectedCondition<Boolean>() {
-                    public Boolean apply(WebDriver driver) {
+                    @Override
+					public Boolean apply(WebDriver driver) {
                         return ((JavascriptExecutor) driver).executeScript("return document.readyState").toString().equals("complete");
                     }
                 };

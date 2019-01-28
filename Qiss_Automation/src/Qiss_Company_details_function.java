@@ -1,10 +1,11 @@
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
@@ -224,7 +225,7 @@ public class Qiss_Company_details_function {
 		
 	}
 	
-	public static void receipt_tabs()
+	public static void receipt_tabs() throws IOException
 	{
 		List<WebElement> test = (Qiss_Company_details_feature.driver).findElements(By.xpath("//div[@class ='cell']/div/a"));
 		for (WebElement iterate : test)
@@ -232,18 +233,34 @@ public class Qiss_Company_details_function {
 			if (iterate.getText().contentEquals("Receipt"))
 			{
 				System.out.println("Receipt tab is shown");
+				
+				Qiss_Company_details_feature.sh1.getRow(126).createCell(3).setCellValue("PASS");
+				Qiss_Company_details_feature.fout = new FileOutputStream(Qiss_Company_details_feature.file_location); 
+				Qiss_Company_details_feature.wb.write(Qiss_Company_details_feature.fout);
 			}
 			else if (iterate.getText().contentEquals("Header"))
 			{
 				System.out.println("Header tab is shown");
+				
+				Qiss_Company_details_feature.sh1.getRow(127).createCell(3).setCellValue("PASS");
+				Qiss_Company_details_feature.fout = new FileOutputStream(Qiss_Company_details_feature.file_location); 
+				Qiss_Company_details_feature.wb.write(Qiss_Company_details_feature.fout);
 			}
 			else if (iterate.getText().contentEquals("Footer"))
 			{
 				System.out.println("Footer tab is shown");
+				
+				Qiss_Company_details_feature.sh1.getRow(128).createCell(3).setCellValue("PASS");
+				Qiss_Company_details_feature.fout = new FileOutputStream(Qiss_Company_details_feature.file_location); 
+				Qiss_Company_details_feature.wb.write(Qiss_Company_details_feature.fout);
 			}
 			else if (iterate.getText().contentEquals("Company logo"))
 			{
 				System.out.println("Company tab is shown");
+				
+				Qiss_Company_details_feature.sh1.getRow(129).createCell(3).setCellValue("PASS");
+				Qiss_Company_details_feature.fout = new FileOutputStream(Qiss_Company_details_feature.file_location); 
+				Qiss_Company_details_feature.wb.write(Qiss_Company_details_feature.fout);
 			}
 			else
 			{

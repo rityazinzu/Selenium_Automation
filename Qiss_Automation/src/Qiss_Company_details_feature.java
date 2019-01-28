@@ -1,8 +1,6 @@
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -62,6 +60,7 @@ public class Qiss_Company_details_feature {
 
 	public static void waitForPageLoaded() {
 		ExpectedCondition<Boolean> expectation = new ExpectedCondition<Boolean>() {
+			@Override
 			public Boolean apply(WebDriver driver) {
 				return ((JavascriptExecutor) driver).executeScript("return document.readyState").toString()
 						.equals("complete");
@@ -82,8 +81,8 @@ public class Qiss_Company_details_feature {
 
 	{
 
-		Qiss_Company_details_locators.uname(driver).sendKeys("ritesh.jhaveri@quipment.nl");
-		Qiss_Company_details_locators.pass(driver).sendKeys("R!tesh@1989");
+		Qiss_Company_details_locators.uname(driver).sendKeys("anup.joshi@quipment.nl");
+		Qiss_Company_details_locators.pass(driver).sendKeys("QUIPment123!@#");
 		Qiss_Company_details_locators.submit(driver).click();
 		waitForPageLoaded();
 		Qiss_Company_details_locators.company(driver).click();
@@ -97,74 +96,71 @@ public class Qiss_Company_details_feature {
 	{
 		if (Qiss_Company_details_locators.active(driver).getText().contentEquals("Active")) {
 			System.out.println("Active records loaded successfully");
+			 sh1.getRow(89).createCell(3).setCellValue("PASS");
+			 fout = new FileOutputStream(file_location); wb.write(fout);
 		}
 
 		else {
 			System.out.println("Error in loading Active records");
+			 sh1.getRow(89).createCell(3).setCellValue("FAIL");
+			 fout = new FileOutputStream(file_location); wb.write(fout);
 		}
 
 		/* Verify that filter is working or not */
 
 		if (Qiss_Company_details_function.filter()) {
 			System.out.println("Data filtered with Company name succesfully");
-			/*
-			 * sh1.getRow(83).createCell(3).setCellValue("PASS"); fout = new
-			 * FileOutputStream(file_location); wb.write(fout);
-			 */
+			
+			 sh1.getRow(90).createCell(3).setCellValue("PASS");
+			 fout = new FileOutputStream(file_location); wb.write(fout);
+			 
 		} else {
 			System.out.println("Error in filtering data with Old value");
-			/*
-			 * sh1.getRow(83).createCell(3).setCellValue("FAIL"); fout = new
-			 * FileOutputStream(file_location); wb.write(fout);
-			 */
+			
+			 sh1.getRow(90).createCell(3).setCellValue("FAIL"); 
+			 fout = new FileOutputStream(file_location); wb.write(fout);
+			 
 		}
 
 		/* Verify that able to clear data from filter */
 
 		if (Qiss_Company_details_function.clear()) {
 			System.out.println("Data cleared successfuly");
-			/*
-			 * sh1.getRow(84).createCell(3).setCellValue("PASS"); fout = new
-			 * FileOutputStream(file_location); wb.write(fout);
-			 */
+			
 		} else {
 			System.out.println("Error is clearing data");
-			/*
-			 * sh1.getRow(84).createCell(3).setCellValue("FAIL"); fout = new
-			 * FileOutputStream(file_location); wb.write(fout);
-			 */
+			
 		}
 
 		/* Verify that paging is working or not */
 
 		if (Qiss_Company_details_function.paging()) {
 			System.out.println("Paging worked succesfully");
-			/*
-			 * sh1.getRow(85).createCell(3).setCellValue("PASS"); fout = new
-			 * FileOutputStream(file_location); wb.write(fout);
-			 */
+			
+				sh1.getRow(91).createCell(3).setCellValue("PASS"); fout = new
+				FileOutputStream(file_location); wb.write(fout);
+			 
 		} else {
 			System.out.println("Error is paging data");
-			/*
-			 * sh1.getRow(85).createCell(3).setCellValue("FAIL"); fout = new
-			 * FileOutputStream(file_location); wb.write(fout);
-			 */
+			 
+				sh1.getRow(91).createCell(3).setCellValue("FAIL"); fout = new
+				FileOutputStream(file_location); wb.write(fout);
+			 
 		}
 
 		/* Verify that Item per page is working or not */
 
 		if (Qiss_Company_details_function.item_page()) {
 			System.out.println("Navigating item per page succesfully");
-			/*
-			 * sh1.getRow(86).createCell(3).setCellValue("PASS"); fout = new
-			 * FileOutputStream(file_location); wb.write(fout);
-			 */
+			
+			sh1.getRow(92).createCell(3).setCellValue("PASS"); fout = new
+			FileOutputStream(file_location); wb.write(fout);
+			
 		} else {
 			System.out.println("Error is navigating item per page");
-			/*
-			 * sh1.getRow(86).createCell(3).setCellValue("FAIL"); fout = new
-			 * FileOutputStream(file_location); wb.write(fout);
-			 */
+			
+			sh1.getRow(92).createCell(3).setCellValue("FAIL"); fout = new
+			FileOutputStream(file_location); wb.write(fout);
 		}
 
 		driver.navigate().refresh();
@@ -183,74 +179,63 @@ public class Qiss_Company_details_feature {
 
 		if (Qiss_Company_details_locators.inactive(driver).getText().contentEquals("Inactive")) {
 			System.out.println("Inactive records loaded successfully");
+			sh1.getRow(93).createCell(3).setCellValue("PASS"); 
+			fout = new FileOutputStream(file_location); wb.write(fout);
 		}
 
 		else {
 			System.out.println("Error in loading Inactive records");
+			sh1.getRow(93).createCell(3).setCellValue("FAIL"); 
+			fout = new FileOutputStream(file_location); wb.write(fout);
 		}
 
 		/* Verify that filter is working or not */
 
 		if (Qiss_Company_details_function.filter()) {
 			System.out.println("Data filtered with Company name succesfully");
-			/*
-			 * sh1.getRow(83).createCell(3).setCellValue("PASS"); fout = new
-			 * FileOutputStream(file_location); wb.write(fout);
-			 */
+			sh1.getRow(94).createCell(3).setCellValue("PASS"); 
+			fout = new FileOutputStream(file_location); wb.write(fout);
+			
 		} else {
 			System.out.println("Error in filtering data with Old value");
-			/*
-			 * sh1.getRow(83).createCell(3).setCellValue("FAIL"); fout = new
-			 * FileOutputStream(file_location); wb.write(fout);
-			 */
+			sh1.getRow(94).createCell(3).setCellValue("FAIL"); 
+			fout = new FileOutputStream(file_location); wb.write(fout);
 		}
 
 		/* Verify that able to clear data from filter */
 
 		if (Qiss_Company_details_function.clear()) {
 			System.out.println("Data cleared successfuly");
-			/*
-			 * sh1.getRow(84).createCell(3).setCellValue("PASS"); fout = new
-			 * FileOutputStream(file_location); wb.write(fout);
-			 */
+			
 		} else {
 			System.out.println("Error is clearing data");
-			/*
-			 * sh1.getRow(84).createCell(3).setCellValue("FAIL"); fout = new
-			 * FileOutputStream(file_location); wb.write(fout);
-			 */
+			
 		}
 
 		/* Verify that paging is working or not */
 
 		if (Qiss_Company_details_function.paging()) {
 			System.out.println("Paging worked succesfully");
-			/*
-			 * sh1.getRow(85).createCell(3).setCellValue("PASS"); fout = new
-			 * FileOutputStream(file_location); wb.write(fout);
-			 */
+			sh1.getRow(95).createCell(3).setCellValue("PASS"); 
+			fout = new FileOutputStream(file_location); wb.write(fout);
+			
 		} else {
 			System.out.println("Error is paging data");
-			/*
-			 * sh1.getRow(85).createCell(3).setCellValue("FAIL"); fout = new
-			 * FileOutputStream(file_location); wb.write(fout);
-			 */
+			sh1.getRow(95).createCell(3).setCellValue("FAIL"); 
+			fout = new FileOutputStream(file_location); wb.write(fout);
 		}
 
 		/* Verify that Item per page is working or not */
 
 		if (Qiss_Company_details_function.item_page()) {
 			System.out.println("Navigating item per page succesfully");
-			/*
-			 * sh1.getRow(86).createCell(3).setCellValue("PASS"); fout = new
-			 * FileOutputStream(file_location); wb.write(fout);
-			 */
+			sh1.getRow(96).createCell(3).setCellValue("PASS"); 
+			fout = new FileOutputStream(file_location); wb.write(fout);
+			
 		} else {
 			System.out.println("Error is navigating item per page");
-			/*
-			 * sh1.getRow(86).createCell(3).setCellValue("FAIL"); fout = new
-			 * FileOutputStream(file_location); wb.write(fout);
-			 */
+			sh1.getRow(96).createCell(3).setCellValue("FAIL"); 
+			fout = new FileOutputStream(file_location); wb.write(fout);
 		}
 
 		driver.navigate().refresh();
@@ -269,74 +254,63 @@ public class Qiss_Company_details_feature {
 
 		if (Qiss_Company_details_locators.all(driver).getText().contentEquals("All")) {
 			System.out.println("All records loaded successfully");
+			sh1.getRow(97).createCell(3).setCellValue("PASS"); 
+			fout = new FileOutputStream(file_location); wb.write(fout);
 		}
 
 		else {
 			System.out.println("Error in loading All records");
+			sh1.getRow(97).createCell(3).setCellValue("FAIL"); 
+			fout = new FileOutputStream(file_location); wb.write(fout);
 		}
 
 		/* Verify that filter is working or not */
 
 		if (Qiss_Company_details_function.filter()) {
 			System.out.println("Data filtered with Company name succesfully");
-			/*
-			 * sh1.getRow(83).createCell(3).setCellValue("PASS"); fout = new
-			 * FileOutputStream(file_location); wb.write(fout);
-			 */
+			sh1.getRow(98).createCell(3).setCellValue("PASS"); 
+			fout = new FileOutputStream(file_location); wb.write(fout);
+			
 		} else {
 			System.out.println("Error in filtering data with Old value");
-			/*
-			 * sh1.getRow(83).createCell(3).setCellValue("FAIL"); fout = new
-			 * FileOutputStream(file_location); wb.write(fout);
-			 */
+			sh1.getRow(98).createCell(3).setCellValue("FAIL"); 
+			fout = new FileOutputStream(file_location); wb.write(fout);
 		}
 
 		/* Verify that able to clear data from filter */
 
 		if (Qiss_Company_details_function.clear()) {
 			System.out.println("Data cleared successfuly");
-			/*
-			 * sh1.getRow(84).createCell(3).setCellValue("PASS"); fout = new
-			 * FileOutputStream(file_location); wb.write(fout);
-			 */
+
 		} else {
 			System.out.println("Error is clearing data");
-			/*
-			 * sh1.getRow(84).createCell(3).setCellValue("FAIL"); fout = new
-			 * FileOutputStream(file_location); wb.write(fout);
-			 */
+
 		}
 
 		/* Verify that paging is working or not */
 
 		if (Qiss_Company_details_function.paging()) {
 			System.out.println("Paging worked succesfully");
-			/*
-			 * sh1.getRow(85).createCell(3).setCellValue("PASS"); fout = new
-			 * FileOutputStream(file_location); wb.write(fout);
-			 */
+			sh1.getRow(99).createCell(3).setCellValue("PASS"); 
+			fout = new FileOutputStream(file_location); wb.write(fout);
+			
 		} else {
 			System.out.println("Error is paging data");
-			/*
-			 * sh1.getRow(85).createCell(3).setCellValue("FAIL"); fout = new
-			 * FileOutputStream(file_location); wb.write(fout);
-			 */
+			sh1.getRow(99).createCell(3).setCellValue("FAIL"); 
+			fout = new FileOutputStream(file_location); wb.write(fout);
 		}
 
 		/* Verify that Item per page is working or not */
 
 		if (Qiss_Company_details_function.item_page()) {
 			System.out.println("Navigating item per page succesfully");
-			/*
-			 * sh1.getRow(86).createCell(3).setCellValue("PASS"); fout = new
-			 * FileOutputStream(file_location); wb.write(fout);
-			 */
+			sh1.getRow(100).createCell(3).setCellValue("PASS"); 
+			fout = new FileOutputStream(file_location); wb.write(fout);
+			
 		} else {
 			System.out.println("Error is navigating item per page");
-			/*
-			 * sh1.getRow(86).createCell(3).setCellValue("FAIL"); fout = new
-			 * FileOutputStream(file_location); wb.write(fout);
-			 */
+			sh1.getRow(100).createCell(3).setCellValue("FAIL"); 
+			fout = new FileOutputStream(file_location); wb.write(fout);
 		}
 		driver.navigate().refresh();
 
@@ -354,7 +328,7 @@ public class Qiss_Company_details_feature {
 		Qiss_Company_details_locators.active(driver).click();
 		Thread.sleep(2000);
 		Qiss_Company_details_locators.filter_icon(driver).click();
-		Qiss_Company_details_locators.filter_data(driver).sendKeys("Insigno");
+		Qiss_Company_details_locators.filter_data(driver).sendKeys("Insigno Quipment");
 		Qiss_Company_details_locators.filter_btn(driver).click();
 		waitForPageLoaded();
 		Qiss_Company_details_locators.navigation_arrow(driver).click();
@@ -363,14 +337,27 @@ public class Qiss_Company_details_feature {
 
 		/* Clicking on New Vehicle button and clearing all mandatory fields */
 
-		Qiss_Company_details_locators.New_vehicle_btn(driver).click();
+		try {
+			
+			Qiss_Company_details_locators.New_vehicle_btn(driver).click();
+			
+			sh1.getRow(101).createCell(3).setCellValue("PASS"); 
+			fout = new FileOutputStream(file_location); wb.write(fout);
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+			sh1.getRow(101).createCell(3).setCellValue("FAIL"); 
+			fout = new FileOutputStream(file_location); wb.write(fout);
+		}
+		
+		
 		Qiss_Company_details_locators.Ping_timeout(driver).clear();
 		Qiss_Company_details_locators.Ping_retries(driver).clear();
 		Qiss_Company_details_locators.Radius(driver).clear();
 		Qiss_Company_details_locators.Stat_time(driver).clear();
 
 		/* Clicking on "Confirm" button display validation error message */
-
+		waitForPageLoaded();
 		Qiss_Company_details_locators.Confirm_btn(driver).click();
 		waitForPageLoaded();
 
@@ -387,19 +374,15 @@ public class Qiss_Company_details_feature {
 
 		{
 			System.out.println("Validation messages are shown");
-			/*
-			 * sh1.getRow(75).createCell(3).setCellValue("PASS"); fout = new
-			 * FileOutputStream(file_location); wb.write(fout);
-			 */
+			sh1.getRow(102).createCell(3).setCellValue("PASS"); 
+			fout = new FileOutputStream(file_location); wb.write(fout);
 
 		}
 
 		else {
 			System.out.println("Validation messages are not shown");
-			/*
-			 * sh1.getRow(75).createCell(3).setCellValue("FAIL"); fout = new
-			 * FileOutputStream(file_location); wb.write(fout);
-			 */
+			sh1.getRow(102).createCell(3).setCellValue("FAIL"); 
+			fout = new FileOutputStream(file_location); wb.write(fout);
 		}
 		Qiss_Company_details_locators.back_btn(driver).click();
 
@@ -415,11 +398,15 @@ public class Qiss_Company_details_feature {
 		Qiss_Company_details_locators.product(driver).click();
 
 		if (Qiss_Company_details_locators.count(driver).getText().contentEquals("No items to display")) {
-			System.out.println("No Product data available to display or Error is showing product data");
+			System.out.println("No Product data available to display.!");
+			sh1.getRow(103).createCell(3).setCellValue("PASS"); 
+			fout = new FileOutputStream(file_location); wb.write(fout);
 		}
 
 		else {
 			System.out.println("Product items are shown successfully.!");
+			sh1.getRow(103).createCell(3).setCellValue("PASS"); 
+			fout = new FileOutputStream(file_location); wb.write(fout);
 		}
 	}
 
@@ -429,7 +416,19 @@ public class Qiss_Company_details_feature {
 
 	{
 		waitForPageLoaded();
-		Qiss_Company_details_locators.QupidoRouter(driver).click();
+		try {
+			
+			Qiss_Company_details_locators.QupidoRouter(driver).click();
+			
+			sh1.getRow(104).createCell(3).setCellValue("PASS"); 
+			fout = new FileOutputStream(file_location); wb.write(fout);
+			
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+			sh1.getRow(104).createCell(3).setCellValue("PASS"); 
+			fout = new FileOutputStream(file_location); wb.write(fout);
+		}
 		Thread.sleep(5000);
 
 		/* Verify default records for qupido router is avilable or not */
@@ -448,6 +447,21 @@ public class Qiss_Company_details_feature {
 		 */
 
 		Qiss_Company_details_locators.New_QupidoRouter_btn(driver).click();
+		
+		if (driver.findElement(By.xpath("//*[@id='updatePanel']/div/div[1]")).getText().contentEquals("Maintain qupido router"))
+		{
+			System.out.println("Successfully Navigated to Maintain Quipdo Router Page");
+			sh1.getRow(105).createCell(3).setCellValue("PASS"); 
+			fout = new FileOutputStream(file_location); wb.write(fout);
+		}
+		
+		else
+		{
+			System.out.println("Error in Navigating to Maintain Quipdo Router Page");
+			sh1.getRow(105).createCell(3).setCellValue("FAIL"); 
+			fout = new FileOutputStream(file_location); wb.write(fout);
+		}
+		
 		Qiss_Company_details_locators.Username(driver).clear();
 		Qiss_Company_details_locators.Password(driver).clear();
 		Qiss_Company_details_locators.filepath(driver).clear();
@@ -464,19 +478,15 @@ public class Qiss_Company_details_feature {
 
 		{
 			System.out.println("Validation messages are shown");
-			/*
-			 * sh1.getRow(75).createCell(3).setCellValue("PASS"); fout = new
-			 * FileOutputStream(file_location); wb.write(fout);
-			 */
+			sh1.getRow(106).createCell(3).setCellValue("PASS"); 
+			fout = new FileOutputStream(file_location); wb.write(fout);
 
 		}
 
 		else {
 			System.out.println("Validation messages are not shown");
-			/*
-			 * sh1.getRow(75).createCell(3).setCellValue("FAIL"); fout = new
-			 * FileOutputStream(file_location); wb.write(fout);
-			 */
+			sh1.getRow(106).createCell(3).setCellValue("FAIL"); 
+			fout = new FileOutputStream(file_location); wb.write(fout);
 		}
 
 		Qiss_Company_details_locators.router_name(driver).sendKeys("Testing");
@@ -490,10 +500,14 @@ public class Qiss_Company_details_feature {
 
 		if (Qiss_Company_details_locators.count(driver).getText().contentEquals("1 - 1 of 1 items")) {
 			System.out.println("Record added for qupido router");
+			sh1.getRow(107).createCell(3).setCellValue("PASS"); 
+			fout = new FileOutputStream(file_location); wb.write(fout);
 		}
 
 		else {
 			System.out.println("Error in adding record for Qupido router");
+			sh1.getRow(107).createCell(3).setCellValue("FAIL"); 
+			fout = new FileOutputStream(file_location); wb.write(fout);
 		}
 
 		Qiss_Company_details_locators.navigation_arrow(driver).click();
@@ -504,10 +518,14 @@ public class Qiss_Company_details_feature {
 
 		if (Qiss_Company_details_locators.count(driver).getText().contentEquals("No items to display")) {
 			System.out.println("Records removed from qupido router");
+			sh1.getRow(108).createCell(3).setCellValue("PASS"); 
+			fout = new FileOutputStream(file_location); wb.write(fout);
 		}
 
 		else {
 			System.out.println("Error in deleting record for Qupido router");
+			sh1.getRow(108).createCell(3).setCellValue("FAIL"); 
+			fout = new FileOutputStream(file_location); wb.write(fout);
 		}
 
 	}
@@ -519,12 +537,23 @@ public class Qiss_Company_details_feature {
 
 		Thread.sleep(2000);
 		waitForPageLoaded();
-		Qiss_Company_details_locators.dispatcher(driver).click();
+		
+		try {
+			Qiss_Company_details_locators.dispatcher(driver).click();
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}
 
 		if (Qiss_Company_details_locators.dispatcher(driver).getAttribute("class").contentEquals("active")) {
 			System.out.println("Successfuly navigated to Dispatcher page");
+			sh1.getRow(109).createCell(3).setCellValue("PASS"); 
+			fout = new FileOutputStream(file_location); wb.write(fout);
+			
 		} else {
 			System.out.println("Error in clicking button");
+			sh1.getRow(109).createCell(3).setCellValue("FAIL"); 
+			fout = new FileOutputStream(file_location); wb.write(fout);
 		}
 
 		if (Qiss_Company_details_locators.count(driver).getText().contentEquals("No items to display")) {
@@ -547,8 +576,13 @@ public class Qiss_Company_details_feature {
 
 		if (Qiss_Company_details_locators.subscription(driver).getAttribute("class").contentEquals("active")) {
 			System.out.println("Successfuly navigated to Subscription page");
+			sh1.getRow(110).createCell(3).setCellValue("PASS"); 
+			fout = new FileOutputStream(file_location); wb.write(fout);
+			
 		} else {
 			System.out.println("Error in clicking button");
+			sh1.getRow(110).createCell(3).setCellValue("FAIL"); 
+			fout = new FileOutputStream(file_location); wb.write(fout);
 		}
 
 		if (Qiss_Company_details_locators.count(driver).getText().contentEquals("No items to display")) {
@@ -564,16 +598,22 @@ public class Qiss_Company_details_feature {
 
 	{
 		/* Verify that navigation is performed at configuration page or not */
-
-		Thread.sleep(5000);
-
+		
 		Qiss_Company_details_locators.configuration(driver).click();
+		
+		Thread.sleep(5000);
 
 		if (Qiss_Company_details_locators.configuration(driver).getAttribute("class").contentEquals("active")) {
 			System.out.println("Successfuly navigated to Configuration page");
+			sh1.getRow(111).createCell(3).setCellValue("PASS"); 
+			fout = new FileOutputStream(file_location); wb.write(fout);
+			
 		} else {
 			System.out.println("Error in clicking button");
+			sh1.getRow(111).createCell(3).setCellValue("FAIL"); 
+			fout = new FileOutputStream(file_location); wb.write(fout);
 		}
+		
 		Thread.sleep(5000);
 		Qiss_Company_details_locators.trip_sorting_dropdownlist_arrow(driver).click();
 		Thread.sleep(2000);
@@ -594,14 +634,16 @@ public class Qiss_Company_details_feature {
 				loop1.click();
 				Thread.sleep(2000);
 				System.out.println("Selected trip sorting option is - " + loop1.getAttribute("innerHTML"));
+				sh1.getRow(112).createCell(3).setCellValue("PASS"); 
+				fout = new FileOutputStream(file_location); wb.write(fout);
 				break;
 			}
 		}
 		Thread.sleep(2000);
 
 		List<WebElement> list = driver.findElements(By.xpath("//*[@id='CompanyMemoTable']/tbody/tr/td/input"));
-		int count_element = list.size();
-		System.out.println(count_element);
+		//int count_element = list.size();
+		//System.out.println(count_element);
 
 		/* Verify that break permitted option button is working or not */
 
@@ -620,6 +662,8 @@ public class Qiss_Company_details_feature {
 				loop3.click();
 				/* Selecting and Printing break configuration selected option */
 				System.out.println("Break configuration is selected to - " + loop3.getAttribute("innerHTML"));
+				sh1.getRow(113).createCell(3).setCellValue("PASS"); 
+				fout = new FileOutputStream(file_location); wb.write(fout);
 				break;
 			}
 		}
@@ -635,12 +679,20 @@ public class Qiss_Company_details_feature {
 		if (Qiss_Company_details_locators.config_label(driver).getAttribute("innerHTML")
 				.contentEquals("Configuration")) {
 			System.out.println("Data saved succesfully.!");
+			sh1.getRow(114).createCell(3).setCellValue("PASS"); 
+			fout = new FileOutputStream(file_location); wb.write(fout);
+			
 		} else {
 			System.out.println("Issue in Data saving.!");
+			sh1.getRow(114).createCell(3).setCellValue("FAIL"); 
+			fout = new FileOutputStream(file_location); wb.write(fout);
 		}
 
 		Qiss_Company_details_locators.OK_btn(driver).click();
 		Thread.sleep(3000);
+		
+		/*Clicking on generate config button*/
+		
 		Qiss_Company_details_locators.generateconfig(driver).click();
 		Thread.sleep(3000);
 
@@ -663,8 +715,13 @@ public class Qiss_Company_details_feature {
 		if (Qiss_Company_details_locators.config_label(driver).getAttribute("innerHTML")
 				.contentEquals("Maintain company")) {
 			System.out.println("Configuration generated successfully");
+			sh1.getRow(115).createCell(3).setCellValue("PASS"); 
+			fout = new FileOutputStream(file_location); wb.write(fout);
+			
 		} else {
 			System.out.println("Error in Generating config.");
+			sh1.getRow(115).createCell(3).setCellValue("FAIL");
+			fout = new FileOutputStream(file_location); wb.write(fout);
 		}
 
 		Qiss_Company_details_locators.ok_btn_maintain_company(driver).click();
@@ -688,8 +745,13 @@ public class Qiss_Company_details_feature {
 
 		if (Qiss_Company_details_locators.Tariffset_tariff(driver).getAttribute("class").contentEquals("active")) {
 			System.out.println("Successfuly navigated to Tariffset tariff page..");
+			sh1.getRow(116).createCell(3).setCellValue("PASS");
+			fout = new FileOutputStream(file_location); wb.write(fout);
+			
 		} else {
 			System.out.println("Error in clicking button");
+			sh1.getRow(116).createCell(3).setCellValue("FAIL");
+			fout = new FileOutputStream(file_location); wb.write(fout);
 		}
 
 		/*
@@ -711,19 +773,15 @@ public class Qiss_Company_details_feature {
 
 		{
 			System.out.println("Validation messages are shown");
-			/*
-			 * sh1.getRow(75).createCell(3).setCellValue("PASS"); fout = new
-			 * FileOutputStream(file_location); wb.write(fout);
-			 */
-
+			sh1.getRow(117).createCell(3).setCellValue("PASS");
+			fout = new FileOutputStream(file_location); wb.write(fout);
 		}
 
 		else {
 			System.out.println("Validation messages are not shown");
-			/*
-			 * sh1.getRow(75).createCell(3).setCellValue("FAIL"); fout = new
-			 * FileOutputStream(file_location); wb.write(fout);
-			 */
+			sh1.getRow(117).createCell(3).setCellValue("FAIL");
+			fout = new FileOutputStream(file_location); wb.write(fout);
+
 		}
 
 		/*---Verify adding, editing and deleting tarriffset---*/
@@ -747,19 +805,14 @@ public class Qiss_Company_details_feature {
 
 		{
 			System.out.println("Validation messages are shown..");
-			/*
-			 * sh1.getRow(75).createCell(3).setCellValue("PASS"); fout = new
-			 * FileOutputStream(file_location); wb.write(fout);
-			 */
-
+			sh1.getRow(118).createCell(3).setCellValue("PASS");
+			fout = new FileOutputStream(file_location); wb.write(fout);
 		}
 
 		else {
 			System.out.println("Validation messages are not shown");
-			/*
-			 * sh1.getRow(75).createCell(3).setCellValue("FAIL"); fout = new
-			 * FileOutputStream(file_location); wb.write(fout);
-			 */
+			sh1.getRow(118).createCell(3).setCellValue("FAIL");
+			fout = new FileOutputStream(file_location); wb.write(fout);
 		}
 
 		System.out.println(
@@ -802,19 +855,15 @@ public class Qiss_Company_details_feature {
 			System.out.println("Validation messages are shown..");
 			System.out.println(
 					"Test 2 Pass - Verify that clicking on Confirm button directly without entering data in maintain tariff popup, must show validation message");
-			/*
-			 * sh1.getRow(75).createCell(3).setCellValue("PASS"); fout = new
-			 * FileOutputStream(file_location); wb.write(fout);
-			 */
+			sh1.getRow(119).createCell(3).setCellValue("PASS");
+			fout = new FileOutputStream(file_location); wb.write(fout);
 
 		}
 
 		else {
 			System.out.println("Validation messages are not shown");
-			/*
-			 * sh1.getRow(75).createCell(3).setCellValue("FAIL"); fout = new
-			 * FileOutputStream(file_location); wb.write(fout);
-			 */
+			sh1.getRow(119).createCell(3).setCellValue("FAIL");
+			fout = new FileOutputStream(file_location); wb.write(fout);
 		}
 
 		Qiss_Company_details_locators.maintain_tarif_name(driver).sendKeys("Test_Tariff");
@@ -829,10 +878,19 @@ public class Qiss_Company_details_feature {
 		Qiss_Company_details_locators.Save_btn_taximetertariff(driver).click();
 		Thread.sleep(1000);
 		if (Qiss_Company_details_locators.taximeter_confirm_popup(driver).getText() == "Taxi meter tariff")
-			;
+			
 		{
 			System.out.println("New Tariffset added succesfully..");
 			System.out.println("Test 3 Pass - Verify that adding valid tariff set, must save Tariff set successfully");
+			sh1.getRow(120).createCell(3).setCellValue("PASS");
+			fout = new FileOutputStream(file_location); wb.write(fout);
+		}
+		
+		else 
+		{
+			System.out.println("Error in adding New Tariffset..");
+			sh1.getRow(120).createCell(3).setCellValue("FAIL");
+			fout = new FileOutputStream(file_location); wb.write(fout);
 		}
 
 		driver.findElement(By.xpath("/html/body/div[14]/div[3]/div/button")).click();
@@ -867,9 +925,14 @@ public class Qiss_Company_details_feature {
 				.getText() != "Test_Tariff New") {
 			System.out.println("Tariff edited succesfully..");
 			System.out.println("Test 4 Pass - Verify that maintain tariff details are editable");
+			
+			sh1.getRow(121).createCell(3).setCellValue("PASS");
+			fout = new FileOutputStream(file_location); wb.write(fout);
 
 		} else {
 			System.out.println("Error in editing Tariff..");
+			sh1.getRow(121).createCell(3).setCellValue("FAIL");
+			fout = new FileOutputStream(file_location); wb.write(fout);
 		}
 
 		/* Verify that copy tariff functionality is working fine */
@@ -890,10 +953,14 @@ public class Qiss_Company_details_feature {
 		if (driver.findElement(By.xpath("//label[contains(text(),'Test_Tariff New Copy')]")).getText().contentEquals("Test_Tariff New Copy"))
 		{
 			System.out.println("Tariff copied successfully");
+			sh1.getRow(122).createCell(3).setCellValue("PASS");
+			fout = new FileOutputStream(file_location); wb.write(fout);
 		}
 		else
 		{
 			System.out.println("Error in copying tariff");
+			sh1.getRow(122).createCell(3).setCellValue("FAIL");
+			fout = new FileOutputStream(file_location); wb.write(fout);
 		}
 		
 		Thread.sleep(2000);
@@ -907,11 +974,15 @@ public class Qiss_Company_details_feature {
 		{
 		
 			System.out.println("Successfully deleted all tariffs");
+			sh1.getRow(123).createCell(3).setCellValue("PASS");
+			fout = new FileOutputStream(file_location); wb.write(fout);
 		}
 		
 		else
 		{
 			System.out.println("Error in deleting all tariffs");
+			sh1.getRow(123).createCell(3).setCellValue("FAIL");
+			fout = new FileOutputStream(file_location); wb.write(fout);
 		}
 		
 		/*Verify that "Test Automation" tariff removed or not*/
@@ -990,16 +1061,41 @@ public class Qiss_Company_details_feature {
 	{
 		Thread.sleep(3000);
 		
-		driver.get("https://qiss-test.quipment.nl/Company/MaintainCompany/700?selectTab=7");
-		Thread.sleep(3000);
+		/*driver.get("https://qiss-test.quipment.nl/Company/MaintainCompany/700?selectTab=7");
+		Thread.sleep(3000);*/
 		Qiss_Company_details_locators.Receipt_tab(driver).click();
 		
+		Thread.sleep(2000);
 		
-		System.out.println("Navigated to Receipt page Successfully");
+		/*Verify to navigate receipt page*/
+		
+		if (Qiss_Company_details_locators.Receipt_tab(driver).getAttribute("class").contentEquals("active")) {
+			System.out.println("Successfully navigated to Receipt page..");
+			sh1.getRow(124).createCell(3).setCellValue("PASS");
+			fout = new FileOutputStream(file_location); wb.write(fout);
+			
+		} else {
+			System.out.println("Error in clicking button");
+			sh1.getRow(124).createCell(3).setCellValue("FAIL");
+			fout = new FileOutputStream(file_location); wb.write(fout);}
+		
 		Thread.sleep(3000);
 		
-		/*Navigate to Receipt tab*/
+		/* Verify to Navigate to Receipt tab*/
 		Qiss_Company_details_locators.Receipt(driver).click();
+		
+		if (Qiss_Company_details_locators.Receipt(driver).getAttribute("class").contentEquals("selected"))
+		{
+			System.out.println("Successfully Navigate to Receipt tab");
+			sh1.getRow(125).createCell(3).setCellValue("PASS");
+			fout = new FileOutputStream(file_location); wb.write(fout);
+		}
+		else
+		{
+			System.out.println("Error in Navigate to Receipt tab");
+			sh1.getRow(125).createCell(3).setCellValue("FAIL");
+			fout = new FileOutputStream(file_location); wb.write(fout);
+		}
 		
 		Thread.sleep(3000);
 		
@@ -1075,6 +1171,7 @@ public class Qiss_Company_details_feature {
 		Qiss_Company_details_locators.ok_button(Qiss_Company_details_feature.driver).click();
 		
 		/*Verifying the header/footer dropdown control contains option "Header_name_test_auto" or not */
+		
 		Thread.sleep(2000);
 		List<WebElement>  locators = driver.findElements(By.xpath("//*[@id='TmReceiptsTable']/tbody/tr[6]/td/following::span[contains (text(),'Header_name_test_auto')]"));
 		for(WebElement verify : locators)
