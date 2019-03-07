@@ -2,24 +2,24 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="268003" started-at="2019-01-28T07:31:36Z" finished-at="2019-01-28T07:36:04Z">
+  <suite name="Default suite" duration-ms="18424" started-at="2019-01-29T07:57:38Z" finished-at="2019-01-29T07:57:56Z">
     <groups>
     </groups>
-    <test name="Test" duration-ms="268003" started-at="2019-01-28T07:31:36Z" finished-at="2019-01-28T07:36:04Z">
-      <class name="VehicleTestNG">
-        <test-method status="PASS" signature="beforeTest()[pri:0, instance:VehicleTestNG@51e2adc7]" name="beforeTest" is-config="true" duration-ms="18360" started-at="2019-01-28T07:31:36Z" finished-at="2019-01-28T07:31:54Z">
+    <test name="Default test" duration-ms="18424" started-at="2019-01-29T07:57:38Z" finished-at="2019-01-29T07:57:56Z">
+      <class name="TestDemo">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:TestDemo@3dfc5fb8]" name="beforeTest" is-config="true" duration-ms="9529" started-at="2019-01-29T07:57:38Z" finished-at="2019-01-29T07:57:47Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="allVehcileMethod()[pri:0, instance:VehicleTestNG@51e2adc7]" name="allVehcileMethod" duration-ms="249574" started-at="2019-01-28T07:31:54Z" finished-at="2019-01-28T07:36:04Z">
+        <test-method status="PASS" signature="Test_Case_1_Company_details()[pri:0, instance:TestDemo@3dfc5fb8]" name="Test_Case_1_Company_details" duration-ms="8860" started-at="2019-01-29T07:57:47Z" finished-at="2019-01-29T07:57:56Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- allVehcileMethod -->
-        <test-method status="PASS" signature="afterTest()[pri:0, instance:VehicleTestNG@51e2adc7]" name="afterTest" is-config="true" duration-ms="15" started-at="2019-01-28T07:36:04Z" finished-at="2019-01-28T07:36:04Z">
+        </test-method> <!-- Test_Case_1_Company_details -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:TestDemo@3dfc5fb8]" name="afterTest" is-config="true" duration-ms="2" started-at="2019-01-29T07:57:56Z" finished-at="2019-01-29T07:57:56Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-      </class> <!-- VehicleTestNG -->
-    </test> <!-- Test -->
-  </suite> <!-- Suite -->
+      </class> <!-- TestDemo -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

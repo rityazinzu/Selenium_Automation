@@ -81,8 +81,8 @@ public class Qiss_Company_details_feature {
 
 	{
 
-		Qiss_Company_details_locators.uname(driver).sendKeys("anup.joshi@quipment.nl");
-		Qiss_Company_details_locators.pass(driver).sendKeys("QUIPment123!@#");
+		Qiss_Company_details_locators.uname(driver).sendKeys("ritesh.jhaveri@quipment.nl");
+		Qiss_Company_details_locators.pass(driver).sendKeys("R!tesh@1989");
 		Qiss_Company_details_locators.submit(driver).click();
 		waitForPageLoaded();
 		Qiss_Company_details_locators.company(driver).click();
@@ -91,7 +91,7 @@ public class Qiss_Company_details_feature {
 
 	/* Verify the Filter, Paging and Item per page for "Active" Companies */
 
-	public void Active() throws Exception
+	public static void Active() throws Exception
 
 	{
 		if (Qiss_Company_details_locators.active(driver).getText().contentEquals("Active")) {
@@ -168,7 +168,7 @@ public class Qiss_Company_details_feature {
 
 	/* Verify the Filter, Paging and Item per page for "InActive" Companies */
 
-	public void Inactive() throws Exception
+	public static void Inactive() throws Exception
 
 	{
 
@@ -243,7 +243,7 @@ public class Qiss_Company_details_feature {
 
 	/* Verify the Filter, Paging and Item per page for "ALL" Companies */
 
-	public void All() throws Exception
+	public static void All() throws Exception
 
 	{
 
@@ -321,7 +321,7 @@ public class Qiss_Company_details_feature {
 	 * message
 	 */
 
-	public void Vehicle() throws Exception
+	public static void  Vehicle() throws Exception
 
 	{
 		waitForPageLoaded();
@@ -390,7 +390,7 @@ public class Qiss_Company_details_feature {
 
 	/* Verify the Overall Items are shown for Product in Product items page */
 
-	public void Product() throws Exception
+	public static void Product() throws Exception
 
 	{
 		Thread.sleep(2000);
@@ -412,7 +412,7 @@ public class Qiss_Company_details_feature {
 
 	/* Verify Qupido router functionlaity */
 
-	public void QupidoRouter() throws Exception
+	public static void QupidoRouter() throws Exception
 
 	{
 		waitForPageLoaded();
@@ -530,7 +530,7 @@ public class Qiss_Company_details_feature {
 
 	}
 
-	public void Dispatcher() throws Exception
+	public static void Dispatcher() throws Exception
 
 	{
 		/* Verify that navigation is performed at dispatcher page or not */
@@ -565,7 +565,7 @@ public class Qiss_Company_details_feature {
 		}
 	}
 
-	public void Subscription() throws Exception
+	public static void Subscription() throws Exception
 
 	{
 		/* Verify that navigation is performed at subscription page or not */
@@ -594,7 +594,7 @@ public class Qiss_Company_details_feature {
 		}
 	}
 
-	public void Configuration() throws Exception
+	public static void Configuration() throws Exception
 
 	{
 		/* Verify that navigation is performed at configuration page or not */
@@ -728,7 +728,7 @@ public class Qiss_Company_details_feature {
 	}
 
 	
-	public void Taximeter_tariff() throws Exception
+	public static void Taximeter_tariff() throws Exception
 
 	{
 
@@ -737,8 +737,8 @@ public class Qiss_Company_details_feature {
 		 */
 
 		Thread.sleep(5000);
-		/*driver.navigate().to("https://qiss-test.quipment.nl/Company/MaintainCompany/700?selectTab=6");*/
-
+		/*driver.navigate().to("https://qiss-test.quipment.nl/Company/MaintainCompany/700?selectTab=6");
+		Thread.sleep(5000);*/
 		Qiss_Company_details_locators.Tariffset_tariff(driver).click();
 		
 		Thread.sleep(2000);
@@ -872,12 +872,13 @@ public class Qiss_Company_details_feature {
 		Qiss_Company_details_locators.maintain_initial(driver).sendKeys("7");
 		Qiss_Company_details_locators.maintain_time(driver).sendKeys("4777");
 		Qiss_Company_details_locators.maintain_distance(driver).sendKeys("9777");
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		Qiss_Company_details_locators.confirm_btn_maintain(driver).click();
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		Qiss_Company_details_locators.Save_btn_taximetertariff(driver).click();
-		Thread.sleep(1000);
-		if (Qiss_Company_details_locators.taximeter_confirm_popup(driver).getText() == "Taxi meter tariff")
+		Thread.sleep(3000);
+		
+		if (Qiss_Company_details_locators.taximeter_confirm_popup(driver).getText().contentEquals("Taxi meter tariff"))
 			
 		{
 			System.out.println("New Tariffset added succesfully..");
@@ -888,7 +889,7 @@ public class Qiss_Company_details_feature {
 		
 		else 
 		{
-			System.out.println("Error in adding New Tariffset..");
+			System.out.println("---->>> Error in adding New Tariffset..<<<----");
 			sh1.getRow(120).createCell(3).setCellValue("FAIL");
 			fout = new FileOutputStream(file_location); wb.write(fout);
 		}
@@ -998,7 +999,7 @@ public class Qiss_Company_details_feature {
 		
 	}
 	
-	public void gettariffname()
+	public static void gettariffname()
 	{
 		List<WebElement> tariff_list = driver.findElements(By.xpath("//*[@class='viewtaximetertariff_option']/div"));
 
@@ -1013,7 +1014,7 @@ public class Qiss_Company_details_feature {
 		}
 	}
 
-	public void gettariffname_details() throws InterruptedException
+	public static void gettariffname_details() throws InterruptedException
 	{
 		List<WebElement> tariff_list = driver.findElements(By.xpath("//*[@class='viewtaximetertariff_option']/div"));
 
@@ -1044,7 +1045,7 @@ public class Qiss_Company_details_feature {
 	 * @param subTariff
 	 *            - Sub tariff values
 	 */
-	public void tariffBox(String idTariffName, String subTariff)
+	public  static void tariffBox(String idTariffName, String subTariff)
 	
 	{
 		List<WebElement> tariffs = driver.findElements(By.xpath("//*[@id='" + idTariffName
@@ -1057,7 +1058,7 @@ public class Qiss_Company_details_feature {
 		}
 	}
 	
-	public void reciept () throws Exception
+	public static void reciept () throws Exception
 	{
 		Thread.sleep(3000);
 		

@@ -43,14 +43,14 @@ public class Start_Qiss  {
 
 	}
 	
-	public void login_adfs() 
+	public static void login_adfs() 
 	{
 		
-		Qiss_Company_details_locators.uname(driver).sendKeys("anup.joshi@quipment.nl");
-		Qiss_Company_details_locators.pass(driver).sendKeys("QUIPment123!@#");
+		Qiss_Company_details_locators.uname(driver).sendKeys("ritesh.jhaveri@quipment.nl");
+		Qiss_Company_details_locators.pass(driver).sendKeys("R!tesh@1989");
 		Qiss_Company_details_locators.submit(driver).click();
-		Qiss_Company_details_feature.waitForPageLoaded();
-		Qiss_Company_details_locators.company(driver).click();
+		
+		
 	}
 
 }

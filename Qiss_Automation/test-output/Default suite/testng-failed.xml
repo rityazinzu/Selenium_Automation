@@ -3,15 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="org.apache.commons.io.download">
+      <class name="TestDemo">
         <methods>
-          <include name="example_VerifyDownloadWithFileExtension"/>
-          <include name="example_VerifyDownloadWithFileName"/>
-          <include name="example_VerifyExpectedFileName"/>
-          <include name="testSetup"/>
-          <include name="tearDown"/>
+          <include name="Test_Case_1_Company_details"/>
+          <include name="afterTest"/>
+          <include name="beforeTest"/>
         </methods>
-      </class> <!-- org.apache.commons.io.download -->
+      </class> <!-- TestDemo -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
